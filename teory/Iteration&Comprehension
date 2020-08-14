@@ -1,0 +1,13 @@
+Iterabel object:
+iter('25')
+https://docs.python.org/3/library/functions.html#iter
+
+
+Iterator object:
+>>> iterator_obj = iter('Hello')
+>>> next(iterator_obj)
+'H'
+>>> next(iterator_obj)
+'e'
+>>> next(iterator_obj)
+'l'
