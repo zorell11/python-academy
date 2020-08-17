@@ -80,6 +80,7 @@ sequence[start:stop:step]
 sorting - metoda
 list.sort(key=None,reverse=False)
 sorted(iterable, key=None, reverse=None)
+reverse=True
 
 List Operations:
 Examples in the table below will simulate action on the list lst = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -395,7 +396,7 @@ func(1,2,3,4,5,6)
 
 def func(onem two, *args, four):
     print(one)
-    print(two) 
+    print(two)
     print(args)
     print(four)
 
@@ -481,3 +482,63 @@ file size:
 getsizeof()
 import sys
 sys.getsizeof(file)
+
+
+exceptions:
+https://docs.python.org/3/library/exceptions.html
+try:
+    kód, který Python zkusí pustit
+except:
+    kód, který Python spustí, pokud narazil na chybu
+
+Neexistující proměnná - NameError
+Chybějící znaky - SyntaxError
+Špatné odsazení - IndenationError
+Špatný datový typ - TypeError
+Špatná hodnoty - ValueError
+Dělení nulou - ZeroDivisionError
+Neexistující index - IndexError
+Neexistující klíč - KeyError
+
+try:
+    kód který se kontroluje
+except Error1:
+    kód, který se provede pokud nastane chyba Error1
+except (Error2,Error3):
+    kód, který se provede pokud nastane chyba Error2 nebo Error3
+else:
+    kód, který se provede pokud žádná chyba nenastane
+finally:
+    kód, který se provede vždy
+##########################
+try:
+    code
+except IndexError:
+    code
+except ValueError:
+    code
+##########################
+try:
+    code
+except (IndexError, IndexError):
+    code
+##########################
+try:
+    kód
+except:
+    vyvstala vyjímka -> probíhá kód
+else:
+    vyjímka nevyvstala -> probíhá kód
+##########################
+try:
+    kód
+finally:
+    kód
+##########################
+try:
+    kód
+except:
+    kód
+finally:
+    kód
+##########################
