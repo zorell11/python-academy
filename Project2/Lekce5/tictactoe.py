@@ -6,7 +6,7 @@ BOARD = [['', '', ''],
 PLAYER_X = 'x'
 PLAYER_O = 'o'
 
-def rules():
+def print_rules():
     print('''
 ===========================
 Welcome to Tic Tac Toe
@@ -26,14 +26,22 @@ def print_board(board):
         print('{:1}|{:1}|{:1}'.format(*i))
         print( 6 * '-')
 
-def move_player(board, player):
+def player_move(board, player):
     print(39 * '=')
-    move = int(input('Player ' + player + ' | Please enter your move number: '))
-    print(39 * '=')
-    row, column = divmod(move-1, 3)
-    if board[row][column] == '':
-        board[row][column] = player
-    return row, column
+    while True:
+        try:
+            move = int(input('Player ' + player + ' | Please enter your move number: '))
+            print(39 * '=')
+            row, column = divmod(move-1, 3)
+            if board[row][column] == '':
+                board[row][column] = player
+                return row, column
+            else:
+                print('{} is already taken'.format(move))
+        except ValueError:
+            print('Enter only numbers.')
+        except IndexError:
+            print('Enter number from 1 to 9')
 
 def check_row(BOARD, row, player):
     for i in BOARD[row]:
@@ -75,16 +83,14 @@ def check_win(BOARD, row, column, player):
 
 def main():
 
-    rules()
+    print_rules()
     while True:
         print_board(BOARD)
-        row, column = move_player(BOARD, PLAYER_X)
+        row, column = player_move(BOARD, PLAYER_X)
         check_win(BOARD, row, column, PLAYER_X)
         check_draw(BOARD)
         print_board(BOARD)
-        move_player(BOARD, PLAYER_O)
+        row, column = player_move(BOARD, PLAYER_O)
         check_win(BOARD, row, column, PLAYER_O)
-
-
 
 main()

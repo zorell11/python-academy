@@ -170,7 +170,7 @@ zip()
 Dictionary methods
 Update the dictionary	  .update()	Adds elemnts from other dictionary or iterable pairs (tuples).	store = {'butter': 2.35, 'bread': 0.95}; new = {'milk': 1.15}; store.update(new)	{'milk': 1.15, 'bread': 0.95, 'butter': 2.35}
 Insert missing keys with values	.setdefault()	Insert key with a value, if key is not present	person = {'name':'Martin'}; person.setdefault('age': 25)	{'age': 25, 'name': 'Martin'}
-Get value	              .get()	Returns value of the key.	dict = {'a': 1, 'b': 2}; dict.get('b')	2
+Get value	              .get()	Returns value of the key.	dict = {'a': 1, 'b': 2}; dict.get('b')	2 dict.get('c', 'ola')	ola
 Remove and return value	  .pop()	Removes and returns the value of the chosen key.	dict = {'a': 1, 'b': 2}; dict.pop('a')	1
 Remove and return pair	  .popitem()	Removes and returns a pair from the dictionary.	dict = {'a': 1, 'b': 2}; dict.popitem()	('a', 1)
 Remove items	  .clear()	Removes all items.	dict = {'a': 1, 'b': 2}; dict.clear()	{}
@@ -269,7 +269,7 @@ Build in functions:
 https://docs.python.org/3/library/functions.html
 print(char, end='')
 abs(number) - abs(-12)=12,  abs(12.0)=12.0
-round(number[,ndigits rounding to]) - round(-12)=-12, round(12.12,1)=12.1, round(12.12)=12
+round(number[,ndigits rounding to]) - round(-12)=-12, round(12.12,1)=12.1, round(2563, -2)=2600, round(12.12)=12
 divmod(number1, number2) - divmod(7,3)=S(2,1)
 sorted(iterable, key=None, reverse=None)
 len()
@@ -411,6 +411,9 @@ func(1,2,3,4,5,four = 6)
 'My name is {} and I am {} years old.'.format('Bob', 37)
 '{1} and {0}'.format(arg1, arg2)
 
+>>> meno, x, y = 'A', 180, 225
+>>> r = f'bod {meno} na súradniciach ({x},{y})'
+
 %s -retrazec
 %d - cislo
 
@@ -510,6 +513,17 @@ else:
     kód, který se provede pokud žádná chyba nenastane
 finally:
     kód, který se provede vždy
+
+raise NameError
+raise NameError('Neznámé jméno')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: Neznámé jméno
+
+except TypeError as chyba:
+    chyba_var = chyba
+
+
 ##########################
 try:
     code
@@ -542,3 +556,7 @@ except:
 finally:
     kód
 ##########################
+
+
+Debugging:
+assert type(lst) == list, 'Petrebuji list'
