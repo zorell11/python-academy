@@ -22,26 +22,49 @@ sequence[start:stop:step]
 
 String Methods
 Operation	Syntax	Description	Example	Output
-Letter change	   .lower()	    Return string with all letters lowercased	'HA HA'.lower()	'ha ha'
-Letter change	   .upper()	    Return string with all letters uppercased	'he he'.upper()	'HE HE'
-Letter check	   .islower()	Returns boolean value True, if all items in string are lowercased. Otherwise returns False	'David'.islower()	False
-Letter check	   .isupper()	Returns boolean value True, if all items in string are uppercased. Otherwise returns False	'PETR'.isupper()	True
-Letter change	   .title()	    Returns a new string, where every word begins with capital letter. If a number sequence precedes letters, the method will uppercase the first letter anyway. Also if there is apostrophe within the word, the letter succeding the apostrophe is also capitalized.	'123word'.title()	123Word
-Letter change	   .replace(what,forwhat)	Replaces a substring for another substring inside the operated string.	'Race'.replace('R','F')	'Face'
-Letter check	   .istitle()	Returns boolean value True, if the first character is a capital letter. Otherwise returns False	'Martin'.istitle()	True
-Letter change	   .swapcase()	Swaps the upper and lowercase letters.	'Mr. Jones PhD'.swapcase()	'mR. jONES pHd.'
-Split by symbol	   .split('a')	Splits the given string by the symbol given in the parentheses into a list. If the parentheses are empty, the method splits the list by space	splitted = 'This is my car'.split()	['This', 'is', 'my', 'car']
-Split by delimeter .splitlines([keepends])	Splits the string on line end delimiters. Flag keepends - tells whether line delimiters ('\n' or '\r' etc.) should be kept	'This is the first line\nThis is the second line'.splitlines(keepends = True)	['This is the first line\n',This is the second line']
-Split by separator .partition(separator)	Returns a tuple of part of the string preceding the separator, separator, part of the string succeeding the separator	up-to-date'.partition('-')	('up', '-', 'to-date')
-Strip of symbols   .strip()	    Strips the given strings of the symbols we want to remove	'www.example.cz'.strip('www.cz')	'example'
-Character type	   .isdecimal()	Returns True if all the characters inside the string are decimal characters ('0','1','2','3','4','5','6','7','8','9') and there is at least 1 character, otherwise False	'1234'.isdecimal()	True
-Character type	   .isdigit()	Returns True if all the characters inside the string are decimal characters or subscripts or superscripts (e.g. "\u00B2") and there is at least one character, otherwise False.	'\u00B2'.isdigits()	True
-Character type	   .isnumeric()	Returns True if all the characters inside the string are decimal characters, subscripts, superscripts (e.g. "\u00B2"), fractions (e.g. "\u00BC"), roman numerals (e.g. "\u2165"), currency numerators etc. (all characters that have the Unicode numeric value property), and there is at least one character, False otherwise.	'\u2165'.isnumeric()	True
-Character type	   .isalpha()	Returns boolean value True, if all the characters are letters. Otherwise returns False	'asdvfb'.isaplha()	True
-Character type	   .isalnum()	Return true if all characters in the string are alphanumeric and there is at least one character, false otherwise (Basically all the Character Type methods above - .isdecimal(),.isdigit(),.isnumeric(), .isalpha().	'Z312'.isalnum()	True
-Search	           .find('m')	Finds a character in a string and returns its index	'Thomas'.find('m')	3
-Join by symbol	   .join(seq)	Joins the items of the sequence in the parentheses by the symbol written in the string	':'.join(['a', 'b'])	'a:b'
+.lower()	    Return string with all letters lowercased	'HA HA'.lower()	'ha ha'
+.upper()	    Return string with all letters uppercased	'he he'.upper()	'HE HE'
+.islower()	Returns boolean value True, if all items in string are lowercased. Otherwise returns False	'David'.islower()	False
+.isupper()	Returns boolean value True, if all items in string are uppercased. Otherwise returns False	'PETR'.isupper()	True
+.title()	    Returns a new string, where every word begins with capital letter. If a number sequence precedes letters, the method will uppercase the first letter anyway. Also if there is apostrophe within the word, the letter succeding the apostrophe is also capitalized.	'123word'.title()	123Word
+.replace(what,forwhat)	Replaces a substring for another substring inside the operated string.	'Race'.replace('R','F')	'Face'
+.istitle()	Returns boolean value True, if the first character is a capital letter. Otherwise returns False	'Martin'.istitle()	True
+.swapcase()	Swaps the upper and lowercase letters.	'Mr. Jones PhD'.swapcase()	'mR. jONES pHd.'
+.split('a')	Splits the given string by the symbol given in the parentheses into a list. If the parentheses are empty, the method splits the list by space	splitted = 'This is my car'.split()	['This', 'is', 'my', 'car']
+.splitlines([keepends])	Splits the string on line end delimiters. Flag keepends - tells whether line delimiters ('\n' or '\r' etc.) should be kept	'This is the first line\nThis is the second line'.splitlines(keepends = True)	['This is the first line\n',This is the second line']
+.partition(separator)	Returns a tuple of part of the string preceding the separator, separator, part of the string succeeding the separator	up-to-date'.partition('-')	('up', '-', 'to-date')
+.isdecimal()	Returns True if all the characters inside the string are decimal characters ('0','1','2','3','4','5','6','7','8','9') and there is at least 1 character, otherwise False	'1234'.isdecimal()	True
+.isdigit()	Returns True if all the characters inside the string are decimal characters or subscripts or superscripts (e.g. "\u00B2") and there is at least one character, otherwise False.	'\u00B2'.isdigits()	True
+.isnumeric()	Returns True if all the characters inside the string are decimal characters, subscripts, superscripts (e.g. "\u00B2"), fractions (e.g. "\u00BC"), roman numerals (e.g. "\u2165"), currency numerators etc. (all characters that have the Unicode numeric value property), and there is at least one character, False otherwise.	'\u2165'.isnumeric()	True
+.isalpha()	Returns boolean value True, if all the characters are letters. Otherwise returns False	'asdvfb'.isaplha()	True
+.isalnum()	Return true if all characters in the string are alphanumeric and there is at least one character, false otherwise (Basically all the Character Type methods above - .isdecimal(),.isdigit(),.isnumeric(), .isalpha().	'Z312'.isalnum()	True
+.find('m')	Finds a character in a string and returns its index	'Thomas'.find('m')	3
+.join(seq)	Joins the items of the sequence in the parentheses by the symbol written in the string	':'.join(['a', 'b'])	'a:b'
 
+.strip()	    Strips the given strings of the symbols we want to remove
+'www.example.cz'.strip('www.cz')	'example'
+>>> spam = ' Hello, World '
+>>> spam.strip()
+'Hello, World'
+>>> spam.lstrip()
+'Hello, World '
+>>> spam.rstrip()
+' Hello, World'
+
+.startwith()
+>>> 'Hello, world!'.startswith('Hello')
+True
+.endwith()
+>>> 'Hello, world!'.endswith('world!')
+True
+
+.partition()
+>>> 'Hello, world!'.partition('w')
+('Hello, ', 'w', 'orld!')
+>>> 'Hello, world!'.partition('o')
+('Hell', 'o', ', world!')
+>>> 'Hello, world!'.partition('XYZ')
+('Hello, world!', '', '')
 
 #################################################################################
 
@@ -107,6 +130,11 @@ Reversion	      .reverse()	Changes the order of the list. The method takes no ar
 Copy	          .copy()	     Returns a copy of the original list. The method takes no arguments	lst_copy = lst.copy()	lst_copy = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Sort	          .sort(key=None,reverse=False)	Returns sorted sequence according to key and the parameter reverse	lst.sort(reverse=True)	[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
+
+deepcopy:
+import copy
+xs = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+a = copy.deepcopy(xs)
 #################################################################################
 
 dictionary	Pairs of objects - key value pairs separated by colon. Key value pairs are separated by comma and everything is enclosed
@@ -268,6 +296,8 @@ constructor:	int()	float()	str()	list()	tuple()	range()	bytes()	bytearray	dict()
 Build in functions:
 https://docs.python.org/3/library/functions.html
 print(char, end='')
+pprint - 'pretty print' dictionary values import pprint
+pformat         import pprint
 abs(number) - abs(-12)=12,  abs(12.0)=12.0
 round(number[,ndigits rounding to]) - round(-12)=-12, round(12.12,1)=12.1, round(2563, -2)=2600, round(12.12)=12
 divmod(number1, number2) - divmod(7,3)=S(2,1)
@@ -560,3 +590,35 @@ finally:
 
 Debugging:
 assert type(lst) == list, 'Petrebuji list'
+
+
+3party module:
+pip isntall --user pyperclip
+import pyperclip
+>>> pyperclip.copy('Hello, world!')
+>>> pyperclip.paste()
+'Hello, world!'
+
+
+import os - working with paths, navigating accros directories, creating directories, renaming files etc
+os.mkdir(path)
+
+os.listdir()
+>>> os.listdir()
+['create_dir.py', 'create_file.py', 'DIR']
+
+os.getcwd() curent working directory
+>>> os.getcwd()
+'C:\\Users\\zveres\\Desktop\\docx\\learning\\python\\python-academy\\10. Importing\\Exercises'
+
+os.chdir('DIR1/DIR1.1)
+os.path.isfile(path)
+os.path.isdir(path)
+os.path.exists(path)
+os.path.isabs(path)
+
+import sys - getting some system information
+import shutil - copying files and directories
+shutil.copy(source,destination) - copy files
+shutil.copytree(source,destination) - copy directory
+shutil.rmtree(path) - remove directory
