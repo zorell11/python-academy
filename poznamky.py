@@ -1,4 +1,4 @@
-https://docs.python.org/3/library/functions.html
+orighttps://docs.python.org/3/library/functions.html
 https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
 
 PEP8:
@@ -611,14 +611,175 @@ os.getcwd() curent working directory
 >>> os.getcwd()
 'C:\\Users\\zveres\\Desktop\\docx\\learning\\python\\python-academy\\10. Importing\\Exercises'
 
+import os
+os.mkdir()
+os.makedirs('TestDir1/Inner1/InInner1')
+os.listdir()
+os.rename(source, destination) - rename and move directory and file
 os.chdir('DIR1/DIR1.1)
 os.path.isfile(path)
 os.path.isdir(path)
 os.path.exists(path)
 os.path.isabs(path)
+os.remove()
+os.rmdir()
+
+os.path.join():
+>>> items = ['/', 'usr', 'PythonBeginner', 'Lesson8', 'test.txt']
+>>> os.path.join(*items)
+'/usr/PythonBeginner/Lesson8/test.txt'
+
+os.path.dirname()
+>>> os.path.dirname(path)
+'/usr/PythonBeginner/Lesson8'
+
+os.path.basename()
+>>> os.path.basename(path)
+'test.txt
+
+os.path.split(path):
+>>> os.path.split(path)
+('/usr/PythonBeginner/Lesson8', 'test.txt')
+
+os.path.splitext() - extract only the file extension
+>>> os.path.splitext(path)
+('/usr/PythonBeginner/Lesson8/test', '.txt')
+
+os.path.exists(path) - returns True, if a given path exists in the file system:
+os.path.isfile(path) - returns True, if a given path references a file
+os.path.isdir(path) - - returns True, if a given path references a directory
+os.path.getsize()
+
+os.walk() function returns on each iteration a tuple (dirpath, dirnames, filenames)
+for dirpath, dirnames, filenames in os.walk(CWD):
+
+os.system('command') - Running Shell Commands
+os.get_terminal_size() - Getting the Terminal Size
+os.get_terminal_size().columns
+os.get_terminal_size().lines
+
 
 import sys - getting some system information
 import shutil - copying files and directories
 shutil.copy(source,destination) - copy files
 shutil.copytree(source,destination) - copy directory
 shutil.rmtree(path) - remove directory
+shutil.move(source,destination) -  it copies all the directories that the moved directory contains.
+
+
+
+import sys
+sys.modules
+sys.path
+sys.platform
+sys.exc_info()
+sys.argv - collect command line input_arguments
+$ python3 move_files.py Lesson6 Lesson7
+['move_files.py', 'Lesson6', 'Lesson7']
+
+sys.exit() - exit the program, this function raises the SystemExit
+try:
+    sys.exit()
+except SystemExit:
+    inpt = input('Do you really want to exit the program? y/n ')
+    if inpt == 'y': raise
+
+import modulanme
+import modulname, modulname
+from modulanme import varialbe
+from pprint import pprint as pp  - atribute aliasing
+import datetime as dt - module aliasing
+
+if __name__ == "__main__":
+
+which variable cannot be imported
+from module import *
+- Variable names beginning with a single underscore:
+_secret = 'Password123'
+- Using __all__ variable:
+__all__ variable, only those variable names will be imported,
+
+
+Reload Module - imports a module that we have changed during the script runtime
+import importlib
+importlib.reload(modulename)
+from importlib import reload
+reload(modulename)
+
+
+
+###########################
+Python Math Library
+https://docs.python.org/3/library/math.html
+
+math.sqrt(x)	Return the square root of x.
+math.factorial(x)	Return x factorial. Raises ValueError if x is not integral or is negative.
+math.ceil(x)	Return the ceiling of x, the smallest integer greater than or equal to x.
+math.floor(x)	Return the floor of x, the largest integer less than or equal to x.
+math.gcd(a, b)	Return the greatest common divisor of the integers a and b. If either a or b is nonzero, then the value of gcd(a, b) is the largest positive integer that divides both a and b. gcd(0, 0) returns 0.
+math.isfinite(x)	Return True if x is neither an infinity nor a NaN, and False otherwise. (Note that 0.0 is considered finite.)
+math.isinf(x)	Return True if x is a positive or negative infinity, and False otherwise.
+math.isnan(x)	Return True if x is a NaN (not a number), and False otherwise.
+math.pi	The mathematical constant π = 3.141592..., to available precision.
+math.inf	A floating-point positive infinity - equivalent to the output of float('inf'). For negative infinity, use -math.inf
+
+
+################################
+
+
+CSV:
+import CSV
+file = open('example.csv', 'r+')
+reader = csv.reader(file)
+for row in reader:
+    print(row)
+
+writer = csv.writer(file)
+file.seek(0,2) - set kurzor to the end of file
+writer.writerow(list)
+writer.writerows(list)
+file.flush() - all the changes written into the file are reflected in it, before we close it.
+
+dict_reader = csv.DictReader(file)
+dict_reader.fieldnames
+next(dict_reader)
+
+writer = csv.DictWriter(file, dict_reader.fieldnames)
+writerow()
+writerows()
+
+
+REQUESTS module:
+3party module
+pip install requests
+
+import requests
+requests.get() - ask a server  requests.get('https://example.com')
+response = requests.get('https://example.com')
+response.status_code
+response.headers    response header
+response.text
+response.request.headers Original Request header
+response.request.body  - Original Request GET message do not have body
+
+POST:
+requests.post()
+url = https://requestb.in/14h8opb1
+resp = requests.post(url,data={"ts":time.time(),"message":"Hi there"})
+resp.text       response text
+resp.request.body - request body
+
+
+JSON:
+import json
+json.dumps() - encode data into JSON format
+json.dumps(<dict>, indent=4,sort_keys=True)
+indent - tells json to indent the nested structures by 4 spaces from the previous level
+sort_keys=True,False - keys are sorted
+json.loads() -  convert the JSON string back to a dictionary
+
+json.dump() - Writing JSON into a file
+json.dump(employee, file, indent=4)
+
+json.load() - Reading JSON from a file
+content=json.load(file)

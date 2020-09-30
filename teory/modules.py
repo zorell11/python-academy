@@ -13,7 +13,7 @@ os.getcwd()
 os.mkdir()
 os.makedirs('TestDir1/Inner1/InInner1')
 os.listdir()
-os.rename()  - rename and move directory and file
+os.rename(source, destination) - rename and move directory and file
 
 import shutil
 shutil.copy(source,destination)
