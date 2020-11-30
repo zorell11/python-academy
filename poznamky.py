@@ -433,6 +433,10 @@ def func(onem two, *args, four):
 func(1,2,3,4,5,6)  - error
 func(1,2,3,4,5,four = 6)
 
+# Python 3.5+ supports 'type annotations' that can be
+# used with tools like Mypy to write statically typed Python:
+def my_add(a: int, b: int) -> int:
+    return a + b
 
 #########
 "....%s....%d..." % (inserted_values)
@@ -599,7 +603,7 @@ import pyperclip
 >>> pyperclip.paste()
 'Hello, world!'
 
-
+################## OS module
 import os - working with paths, navigating accros directories, creating directories, renaming files etc
 os.mkdir(path)
 
@@ -623,6 +627,8 @@ os.path.exists(path)
 os.path.isabs(path)
 os.remove()
 os.rmdir()
+
+os.sep - zisti separator k ceste suboru
 
 os.path.join():
 >>> items = ['/', 'usr', 'PythonBeginner', 'Lesson8', 'test.txt']
