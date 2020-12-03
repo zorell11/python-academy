@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 def file_size(path):
@@ -13,6 +14,8 @@ def file_size(path):
     for i in os.listdir(path):
         print(i, os.path.getsize(os.path.join(path, i)))
 
-
-path = 'C:\\Users\\zveres\\AppData\\Local\\Programs\\Python\\Python37\\test\\TestDir1\\'
+if 'win' in sys.platform:
+    path = 'C:\\Users\\zveres\\AppData\\Local\\Programs\\Python\\Python37\\test\\TestDir1\\'
+elif 'linux' in sys.platform:
+    path = ''
 file_size(path)
