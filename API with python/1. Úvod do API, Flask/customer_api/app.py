@@ -70,9 +70,10 @@ def add_trip(username):
 
 
 @app.route('/customer', methods=['POST'])
-def add_customer():
+def add_customer(username):
     request_data = request.get_json()
     new_customer = {
+    "username" : username,
     "email" : request_data["email"],
     "username" : request_data["username"],
     "name" : request_data["name"],
@@ -81,7 +82,7 @@ def add_customer():
     }
     for customer in customers:
         if new_customer['username'] == customer['username']:
-            return "User is already exist", 404
+            return "User is already exist", 409
     customers.append(new_customer)
     return jsonify({'user' : new_customer}), 201
 

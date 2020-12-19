@@ -1,34 +1,35 @@
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request
 
 # Vytvoření aplikace
 app = Flask(__name__)
 
 # Provizorní databáze
 customers = [
-             {
-              "email" : "jan.novak@email.cz",
-              "username" : "johny",
-              "name" : "Jan Novák",
-              "newsletter_status" : True,
-              "trips" : [
-                            {
-                             "destination" : "Oslo, Norway",
-                             "price" : 150.00
-                            },
-                            {
-                             "destination" : "Bangkok, Thailand",
-                             "price" : 965.00
-                            }
-                          ]
-             },
-             {
-              "email" : "ivan.opletal@gmail.com",
-              "username" : "ivan123",
-              "name" : "Ivan Opletal",
-              "newsletter_status" : False,
-              "trips" : []
-             }
+    {
+        "email": "jan.novak@email.cz",
+        "username": "johny",
+        "name": "Jan Novák",
+        "newsletter_status": True,
+        "trips": [
+            {
+                "destination": "Oslo, Norway",
+                "price": 150.00
+            },
+            {
+                "destination": "Bangkok, Thailand",
+                "price": 965.00
+            }
         ]
+    },
+    {
+        "email": "ivan.opletal@gmail.com",
+        "username": "ivan123",
+        "name": "Ivan Opletal",
+        "newsletter_status": False,
+        "trips": []
+    }
+]
+
 # Vrácení všech zákazníků
 @app.route('/customers', methods=['GET'])
 def get_customers():
@@ -79,6 +80,33 @@ def create_trip_in_customer(username):
             }
             customer['trips'].append(new_trip)
             return new_trip, 201
+    return jsonify({'message': 'username not found'}), 404
+
+# Úprava existujícího, popř, vytvoření neexistujícího zákazníka
+@app.route('/customer/<string:username>', methods=['PUT'])
+def update_customer(username):
+    request_data = request.get_json()
+    updated_customer = {
+        "email": request_data['email'],
+        "name": request_data['name'],
+        "newsletter_status": request_data['newsletter_status'],
+        "trips": []
+    }
+
+    for customer in customers:
+        if username == customer['username']:
+            customer.update(request_data)
+            return updated_customer, 201
+    customers.append(updated_customer)
+    return updated_customer
+
+# Vymazání zákazníka
+@app.route('/customer/<string:username>', methods=['DELETE'])
+def delete_customer(username):
+    for customer in customers:
+        if username == customer['username']:
+            customers.remove(customer)
+            return jsonify({'message': 'customer was successfully removed'})
     return jsonify({'message': 'username not found'}), 404
 
 # Spuštění serveru

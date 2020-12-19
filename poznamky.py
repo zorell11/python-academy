@@ -909,4 +909,4 @@ status kody:
 404 (Not Found)
 200 (OK)
 201 (Created)
-409 (Conflict)
+409 (Conflict) - user already exist
