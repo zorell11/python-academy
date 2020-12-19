@@ -297,6 +297,7 @@ Build in functions:
 https://docs.python.org/3/library/functions.html
 print(char, end='')
 pprint - 'pretty print' dictionary values import pprint
+pprint(value)
 pformat         import pprint
 abs(number) - abs(-12)=12,  abs(12.0)=12.0
 round(number[,ndigits rounding to]) - round(-12)=-12, round(12.12,1)=12.1, round(2563, -2)=2600, round(12.12)=12
@@ -779,7 +780,7 @@ resp.request.body - request body
 JSON:
 import json
 json.dumps() - encode data into JSON format
-json.dumps(<dict>, indent=4,sort_keys=True)
+json.dumps(<dict>, indent=4,sort_keys=True, sort_keys = True)
 indent - tells json to indent the nested structures by 4 spaces from the previous level
 sort_keys=True,False - keys are sorted
 json.loads() -  convert the JSON string back to a dictionary
@@ -789,3 +790,123 @@ json.dump(employee, file, indent=4)
 
 json.load() - Reading JSON from a file
 content=json.load(file)
+
+
+
+######## ITERAČNÍ PROTOKOL
+iter('25')
+>>> iter('25')
+<str_iterator object at 0x7fef95a6cd30>
+
+iterator_obj = iter('Hello')
+>>> next(iterator_obj)
+'H'
+>>> next(iterator_obj)
+'e'
+
+
+########## datetime
+import datetime
+from datetime import datetime as dt
+from datetime import date as d
+from datetime import time as t
+from datetime import timedelta as td
+
+datetime.time	Ukládá informace o čase (hodina, minuta, sekunda, mikrosekunda)	datetime.time(17,34,54,654)	datetime.time(17, 34, 54, 654)
+datetime.date	Ukládá pouze datum (rok, měsíc, den)	datetime.date(1970,1,1)	datetime.date(1970, 1, 1)
+datetime.datetime	Ukládá datum a čas	datetime.datetime(1970,1,1,17,34,54,654)	datetime.datetime(1970, 1, 1, 17, 34, 54, 654)
+datetime.timedelta	Ukládá rozdím mezi dvěma časy nebo daty	d1 = datetime.date(1970, 1, 1)
+
+t = datetime.time(17,34,54,654):
+t.hour
+t.minute
+t.second
+t.microsecond
+
+
+d1 = datetime.date(1970, 1, 1)
+d2 = datetime.date(1970,1,15)
+d.year
+d.month
+d.day
+
+datetime.timedelta(days=14, seconds=24*3600-1, microseconds=)
+dd = d2 - d1
+dd.days
+dd.seconds
+dd.microseconds
+
+
+datetime.date.today():
+datetime.date(1970, 1, 1)
+
+print(datetime.datetime.today()):
+datetime.datetime(1970, 1, 1, 13, 9, 8, 957772)
+
+print(datetime.datetime.now()):
+datetime.datetime(1970, 1, 1, 13, 9, 20, 775283)
+
+print(datetime.datetime.utcnow()):
+datetime.datetime(1970, 1, 1, 11, 9, 24, 261556)
+
+
+strftime:
+Znak Popis
+%Y	Rok
+%m	Měsíc
+%d	den
+%H	hodina
+%M	minuta
+%S	sekunda
+
+my_d = datetime.date(1970, 1, 1)
+my_dt = datetime.datetime(1970, 1, 1, 17, 34, 54, 654)
+print(my_d.strftime('%d.%m.%Y %H:%M:%S'))
+print(my_dt.strftime('%d.%m.%Y %H:%M:%S'))
+Výstup:
+01.01.1970 00:00:00
+01.01.1970 17:34:54
+
+weekday:
+vrací celé číslo (int) od 0 pro pondělí, až do 6 pro neděli.
+dt = datetime.datetime(2016, 8, 21, 11, 32)
+print(dt.weekday())
+Výstup:
+6
+
+isoweekday:
+získat číslo dne v týdnu v rozsahu od 1 do 7,
+from datetime import date
+print(date(2017,10,9).isoweekday())
+Výstup:
+1
+
+
+
+################# time
+import time
+start = time.time()
+end = time.time()
+end - start = vysledok v sekundach
+
+
+
+
+######### Flask
+from flask import Flask
+from flask import jsonify - vypis v json formate
+from flask import request - request pre POST
+app = Flask(__name__)
+request_data = request.get_json()
+app.run(port=3333, debug=True)
+
+endpoints:
+@app.route('/customers', methods=['GET'])
+@app.route('/customer/<string:username>', methods=['GET'])
+methods: GET, POST
+
+status kody:
+404 (Not Found)
+200 (OK)
+201 (Created)
+409 (Conflict)
