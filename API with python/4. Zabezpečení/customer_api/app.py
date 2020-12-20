@@ -49,6 +49,7 @@ class Customer(Resource):
     parser.add_argument('email', type=str, required=True)
     parser.add_argument('name', type=str, required=True)
     parser.add_argument('newsletter_status', type=bool, required=True)
+
     def get(self, username):
         for customer in customers:
             if customer['username'] == username:
